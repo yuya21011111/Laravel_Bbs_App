@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Thread;
+use App\Models\Nices;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -42,4 +45,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function threads() {
+        return $this->hasMany(Thread::class);
+    }
+    
+    // いいね機能
+    public function nices(){
+        return $this->hasMany(Nice::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
