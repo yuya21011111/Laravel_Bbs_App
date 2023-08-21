@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/threads',[ThreadController::class,'index'])->name('thread');
+Route::get('/threads/create',[ThreadController::class,'create'])->name('thread.create');
+Route::post('/threads/store',[ThreadController::class,'store'])->name('thread.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
