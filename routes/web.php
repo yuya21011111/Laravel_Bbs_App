@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\NiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::get('/', function () {
 Route::get('/threads',[ThreadController::class,'index'])->name('thread');
 Route::get('/threads/create',[ThreadController::class,'create'])->name('thread.create');
 Route::post('/threads/store',[ThreadController::class,'store'])->name('thread.store');
+Route::get('/threads/{thread}', [ThreadController::class, 'show'])->name('thread.show');
+
+Route::get('/nice/{thread}',[NiceController::class,'nice'])->name('nice');
+Route::get('/unnice/{thread}',[NiceController::class,'unnice'])->name('unnice');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

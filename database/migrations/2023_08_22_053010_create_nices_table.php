@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('nices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('thread_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('thread_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
