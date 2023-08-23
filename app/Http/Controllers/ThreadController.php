@@ -13,7 +13,11 @@ use App\Models\Nice;
 class ThreadController extends Controller
 {
     public function index() {
-        return view('thread.index');
+        $threads = Thread::orderBy('created_at', 'desc')->paginate(20);
+        // foreach($threads as $thread){
+        //     dd($thread);
+        // }
+        return view('thread.index',compact('threads'));
     }
 
     public function create() {
