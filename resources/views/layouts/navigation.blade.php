@@ -5,15 +5,15 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('thread') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('thread')" :active="request()->routeIs('thread')">
+                        香川の温泉情報
                     </x-nav-link>
                 </div>
             </div>
@@ -36,7 +36,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('プロフィール') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -46,7 +46,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('ログアウト') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -55,8 +55,8 @@
 
                 @guest
                     <div class="flex gap-x-4">
-                        <a href="{{ route('login') }}">{{ __('Log in') }}</a>
-                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                        <a href="{{ route('register') }}">{{ __('新規登録') }}</a>
                     </div>
                 @endguest
             </div>
@@ -77,16 +77,16 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             @auth
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('thread')" :active="request()->routeIs('thread')">
+                香川の温泉情報
             </x-responsive-nav-link>
             @endauth
             @guest
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                {{ __('Log in') }}
+                {{ __('ログイン') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                {{ __('Register') }}
+                {{ __('新規登録') }}
             </x-responsive-nav-link>
             @endguest
         </div>
@@ -101,7 +101,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('プロフィール') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -111,7 +111,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('ログアウト') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

@@ -5,7 +5,7 @@
          スレッド一覧画面
         </h2>
         <div>
-          <a href="{{ route('thread.create') }}">{{ __('New Thread') }}</a>
+          <a href="{{ route('thread.create') }}">{{ __('温泉情報投稿') }}</a>
         </div>
       </div>
     </x-slot>

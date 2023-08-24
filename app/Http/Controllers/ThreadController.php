@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Thread;
 use App\Models\Nice;
+use App\Services\ImageService;
 
 
 
@@ -27,14 +28,26 @@ class ThreadController extends Controller
     public function store(Request $request) {
         $request->validate([
             'title' => ['required','string','max:30'],
-            'body' => ['required','string','max:300']
+            'body' => ['required','string','max:300'],
+            'fileName' =>['mimes:jpg,jpeg,png','max:4096'],
         ]);
+        
+        // 画像の保存処理
+        $imageFails = $request->file('files');
+        if(!is_null($imageFails)){
+            foreach($imageFails as $imageFail) {
+                $fileNameToStore = ImageService::upload($imageFail,'images');
+            }
+        }
+        else {
+            $fileNameToStore = null;
+        }
 
-       
 
-        $thread =  DB::transaction(function () use ($request) {
+        $thread =  DB::transaction(function () use ($request,$fileNameToStore) {
             $thread = $request->user()->threads()->create([
                 'title' => $request->title,
+                'fileName' => $fileNameToStore,
             ]);
     
             $thread->comments()->create([

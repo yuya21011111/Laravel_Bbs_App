@@ -12,8 +12,8 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'user_id'
+        'body', // コメント
+        'user_id',
     ];
 
     public function user(){

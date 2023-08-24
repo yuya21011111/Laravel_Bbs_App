@@ -13,7 +13,8 @@ class Thread extends Model
     use HasFactory;
 
     protected $fillable = [
-       'title'
+       'title', // スレッドのタイトル
+       'fileName', // 画像のファイルネーム
     ];
 
     public function comments()

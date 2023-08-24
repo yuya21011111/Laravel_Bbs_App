@@ -10,6 +10,8 @@ use App\Models\Thread;
 class Nice extends Model
 {
     use HasFactory;
+
+    // いいね機能
     public function user(){
         return $this->belongsTo(User::class);
     }
