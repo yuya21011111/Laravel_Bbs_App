@@ -16,7 +16,7 @@
               <x-thread-card :thread="$thread" />
           @endforeach
       @else
-          There is no thread.
+          現在スレッドがありません。
       @endif
     </div>
   </x-app-layout>

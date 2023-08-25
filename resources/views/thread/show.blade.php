@@ -22,7 +22,7 @@
         <x-comment-card :comment="$comment" />
         @endforeach
       @else
-        No comments
+        コメントがありません。
       @endif
      
       @if($nice)
@@ -55,7 +55,7 @@
         <label for="body">{{ __('Comment') }}</label>
         <textarea name="body" id="body" cols="30" rows="4" class="w-full rounded-lg border-2 bg-gray-100 @error('comment') border-red-500 @enderror"></textarea>
         <div class="mt-4">
-          <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">{{ __('Submit') }}</button>
+          <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">投稿する</button>
         </div>
       </form>
     </div>

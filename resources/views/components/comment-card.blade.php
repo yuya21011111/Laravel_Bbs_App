@@ -4,5 +4,5 @@
     <span class="text-sm font-bold">{{ $comment->user->name }}</span>
     <span class="text-sm text-gray-600">{{ $comment->created_at->toDateTimeString() }}</span>
     
-    <p>{{ $comment->body }}</p>
+    <p>{!! nl2br($comment->body) !!}</p>
 </div>
