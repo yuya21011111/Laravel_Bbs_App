@@ -28,8 +28,8 @@
       @if($nice)
       <!-- 「いいね」取消用ボタンを表示 -->
       <div class="flex justify-end mb-4">
-          <button  onclick="location.href='{{ route('unnice',['thread' => $thread->id])}}'"  class="bg-blue-500 rounded font-medium px-4 py-2 text-white"> 
-              いいね
+          <button  onclick="location.href='{{ route('unnice',['thread' => $thread->id])}}'"  class="bg-pink-500 rounded font-medium px-4 py-2 text-white"> 
+            いいね♡
               <!-- 「いいね」の数を表示 -->
               <span class="badge">
                   {{ $thread->nices->count() }}
@@ -39,9 +39,9 @@
       @else
       <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
        <div class="flex justify-end mb-4">
-          <button onclick="location.href='{{ route('nice',['thread' => $thread->id])}}'"  class="bg-blue-500 rounded font-medium px-4 py-2 text-white">
+          <button onclick="location.href='{{ route('nice',['thread' => $thread->id])}}'"  class="bg-pink-500 rounded font-medium px-4 py-2 text-white">
            
-              いいね
+              いいね♡
               <!-- 「いいね」の数を表示 -->
               <span class="badge">
                   {{ $thread->nices->count() }}
@@ -52,8 +52,9 @@
 
       <form action="{{ route('comment.store', $thread) }}" method="POST" class="m-4">
         @csrf
-        <label for="body">{{ __('Comment') }}</label>
+        <label for="body">{{ __('コメント') }}</label>
         <textarea name="body" id="body" cols="30" rows="4" class="w-full rounded-lg border-2 bg-gray-100 @error('comment') border-red-500 @enderror"></textarea>
+        <span class="text-sm text-red-400">※ 紹介されている施設がいいと思った方はいいねしてあげてね！</span>
         <div class="mt-4">
           <button type="submit" class="bg-blue-500 rounded font-medium px-4 py-2 text-white">投稿する</button>
         </div>

@@ -2,7 +2,7 @@
     <x-slot name="header">
       <div class="flex items-center justify-between">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-         スレッド一覧画面
+         香川温泉情報一覧
         </h2>
         <div>
           {{-- <a href="{{ route('thread.create') }}">{{ __('温泉情報投稿') }}</a> --}}

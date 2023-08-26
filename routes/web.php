@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\NiceController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GuestLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::post('/{thread}/comments', [CommentController::class, 'store'])->name('co
 Route::get('/nice/{thread}',[NiceController::class,'nice'])->name('nice');
 Route::get('/unnice/{thread}',[NiceController::class,'unnice'])->name('unnice');
 });
+
+// ゲストログイン機能
+Route::get('/guest-login', [GuestLoginController::class, 'guest'])->name('guestLogin');
+Route::post('/guest-login', [GuestLoginController::class, 'guest'])->name('guestLogin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
